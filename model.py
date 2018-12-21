@@ -16,7 +16,7 @@ def create_model(numNodes, factors):
     right_model.add(Reshape((factors,)))
 
     left_embed = left_model(left_input)
-    right_embed = left_model(right_input)
+    right_embed = right_model(right_input) #fix right_embed = left_embed(right_input)
 
     left_right_dot = merge([left_embed, right_embed], mode="dot", dot_axes=1, name="left_right_dot")
 
